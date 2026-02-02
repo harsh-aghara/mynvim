@@ -1,39 +1,3 @@
--- local nvlsp = require("nvchad.configs.lspconfig")
--- local on_attach = nvlsp.on_attach
--- local on_init = nvlsp.on_init
--- local capabilities = nvlsp.capabilities
--- local lspconfig = require("lspconfig")
---
--- -- List of LSP servers you want
--- local servers = { "pyright", "clangd", "html", "cssls", "lua_ls" }
---
--- for _, server in ipairs(servers) do
---     local opts = {
---         on_attach = on_attach,
---         on_init = on_init,
---         capabilities = capabilities,
---     }
---
---     -- Lua-specific settings
---     if server == "lua_ls" then
---         opts.settings = {
---             Lua = {
---                 diagnostics = { globals = { "vim" } },
---                 workspace = {
---                     library = {
---                         vim.fn.expand("$VIMRUNTIME/lua"),
---                         vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
---                         vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
---                     },
---                 },
---             },
---         }
---     end
---
---     lspconfig[server].setup(opts)
--- end
--- Do NOT: local lspconfig = require("lspconfig")
-
 -- 1) Global defaults for all servers
 vim.lsp.config("*", {
     -- define own on_attach/on_init if needed; avoid pulling from modules that require('lspconfig')
@@ -87,5 +51,3 @@ require("mason-lspconfig").setup({
     ensure_installed = { "pyright", "clangd", "html", "cssls", "lua_ls" }, -- optional
     automatic_enable = true,                                               -- uses vim.lsp.enable() for installed servers
 })
-
--- No calls to require('lspconfig') and no lspconfig[server].setup(...)
