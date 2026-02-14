@@ -1,5 +1,10 @@
 return {
     {
+        "sindrets/diffview.nvim", --for viewing diffs
+        event = "VeryLazy",
+    },
+
+    {
         "stevearc/conform.nvim",
         event = "BufWritePre", -- uncomment for format on save
         opts = require("configs.conform"),

@@ -27,6 +27,15 @@ vim.api.nvim_set_keymap("n", "<Leader>lt", ":Leet test<CR>", { noremap = true, s
 -- Submit current LeetCode solution
 vim.api.nvim_set_keymap("n", "<Leader>ls", ":Leet submit<CR>", { noremap = true, silent = true })
 
+--For git diffing
+vim.keymap.set("n", "<leader>gd", function()
+  if next(require("diffview.lib").views) == nil then
+    vim.cmd("DiffviewOpen")
+  else
+    vim.cmd("DiffviewClose")
+  end
+end, { desc = "Toggle Global Diff View" })
+
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
