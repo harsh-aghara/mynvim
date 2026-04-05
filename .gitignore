@@ -1,0 +1,22 @@
+# Neovim data directories
+data/
+state/
+cache/
+lock/
+
+# Lazy.nvim
+lazy-lock.json
+
+# Backup/swap files
+*.swp
+*.swo
+*~
+*.bak
+
+# Session files
+Session.vim
+session.vim
+
+# OS files
+.DS_Store
+Thumbs.db
